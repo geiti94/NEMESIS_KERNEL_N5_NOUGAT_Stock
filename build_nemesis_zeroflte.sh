@@ -3,7 +3,7 @@
 
 export MODEL=zeroflte
 export ARCH=arm64
-export BUILD_CROSS_COMPILE=/home/geiti94/android/toolchain/aarch64-sabermod-7.0/bin/aarch64-
+export BUILD_CROSS_COMPILE=/home/geiti94/android/toolchain/aarch64-linux-android-4.9/bin/aarch64-linux-android-
 export BUILD_JOB_NUMBER=`grep processor /proc/cpuinfo|wc -l`
 
 RDIR=$(pwd)
@@ -144,7 +144,7 @@ FUNC_BUILD_RAMDISK()
 		mv -f $RDIR/arch/$ARCH/boot/boot.img-dtb $RDIR/ramdisk/SM-G920F/split_img/boot.img-dtb
 		cd $RDIR/ramdisk/SM-G920F
 		./repackimg.sh
-		echo SEANDROIDENFORCE >> image-new.img
+		echo SEANDROIDENFORCE >> boots6f.img
 		;;
 	zerolte)
 		rm -f $RDIR/ramdisk/SM-G925F/split_img/boot.img-zImage

@@ -1,0 +1,67 @@
+
+==============================================
+START : FUNC_BUILD_KERNEL
+==============================================
+
+build common config=exynos7420-zerolte_nemesis_defconfig 
+build variant config=zerolte 
+rm files in : /home/geiti94/android/kernel/test/arch/arm64/boot/dts/*.dtb
+rm: cannot remove '/home/geiti94/android/kernel/test/arch/arm64/boot/dts/*.dtb': No such file or directory
+rm: cannot remove '/home/geiti94/android/kernel/test/arch/arm64/boot/boot.img-dtb': No such file or directory
+rm: cannot remove '/home/geiti94/android/kernel/test/arch/arm64/boot/boot.img-zImage': No such file or directory
+Kconfig:15:warning: environment variable ANDROID_MAJOR_VERSION undefined
+#
+# configuration written to .config
+#
+scripts/kconfig/conf --silentoldconfig Kconfig
+Kconfig:15:warning: environment variable ANDROID_MAJOR_VERSION undefined
+INFO: CC is /home/geiti94/android/toolchain/aarch64-linux-android-4.9/bin/aarch64-linux-android-gcc
+  CHK     include/generated/uapi/linux/version.h
+  CC      scripts/mod/devicetable-offsets.s
+  GEN     scripts/mod/devicetable-offsets.h
+  HOSTCC  scripts/mod/file2alias.o
+  HOSTLD  scripts/mod/modpost
+  CHK     include/generated/utsrelease.h
+make[1]: Nothing to be done for 'dtbs'.
+  CALL    scripts/checksyscalls.sh
+  CHK     include/generated/compile.h
+  OBJCOPY arch/arm64/boot/Image
+  GZIP    arch/arm64/boot/Image.gz
+Processing dts files...
+=> Processing: exynos7420-zerolte_eur_open_06.dts
+=> Generating: exynos7420-zerolte_eur_open_06.dtb
+Warning (device_type_is_string): "device_type" property in /rgb is not a string
+Generating dtb.img...
+=> Found compatible entry: samsung,ZERO LTE EUR EVT1 mPOP,r05
+    (chip: 7420, hw_rev: 8, hw_rev_end: 9)
+Done.
+
+=================================
+END   : FUNC_BUILD_KERNEL
+=================================
+
+[3J[H[2J 
+Android Image Kitchen - RepackImg Script
+by osm0sis @ xda-developers
+ 
+Warning: Overwriting existing files!
+ 
+Packing ramdisk...
+ 
+Using compression: gzip
+ 
+Getting build information...
+kernel = boot.img-zImage
+cmdline = 
+board = SYSMAGIC003KU
+base = 10000000
+pagesize = 2048
+kernel_offset = 00008000
+ramdisk_offset = 01000000
+tags_offset = 00000100
+dtb = boot.img-dtb
+ 
+Building image...
+ 
+Done!
+Total compile time is 7 seconds
