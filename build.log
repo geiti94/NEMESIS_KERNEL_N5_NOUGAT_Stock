@@ -18,13 +18,35 @@ Kconfig:15:warning: environment variable ANDROID_MAJOR_VERSION undefined
 INFO: CC is /home/geiti94/android/toolchain/aarch64-linux-android-4.9/bin/aarch64-linux-android-gcc
   CHK     include/generated/uapi/linux/version.h
   CC      scripts/mod/devicetable-offsets.s
+  CHK     include/generated/utsrelease.h
   GEN     scripts/mod/devicetable-offsets.h
+  CALL    scripts/checksyscalls.sh
   HOSTCC  scripts/mod/file2alias.o
   HOSTLD  scripts/mod/modpost
-  CHK     include/generated/utsrelease.h
-make[1]: Nothing to be done for 'dtbs'.
-  CALL    scripts/checksyscalls.sh
   CHK     include/generated/compile.h
+  CC      block/elevator.o
+  LD      block/built-in.o
+make[1]: Nothing to be done for 'dtbs'.
+  LD      drivers/staging/samsung/built-in.o
+  LD      drivers/staging/built-in.o
+  LD      drivers/built-in.o
+  LINK    vmlinux
+  LD      vmlinux.o
+  MODPOST vmlinux.o
+  GEN     .version
+  CHK     include/generated/compile.h
+  UPD     include/generated/compile.h
+  CC      init/version.o
+  LD      init/built-in.o
+  KSYM    .tmp_kallsyms1.o
+  KSYM    .tmp_kallsyms2.o
+  LD      vmlinux
+  SORTEX  vmlinux
+  SYSMAP  System.map
+  FIPS : Generating hmac of fmp and updating vmlinux... 
+HMAC-SHA256(builtime_bytes.bin)= 2584cda957182905339d28f2bb3657968f759a7ff8a1dc3595f372187f3319bd
+  FIPS : Generating hmac of crypto and updating vmlinux... 
+HMAC-SHA256(builtime_bytes.bin)= 2d629d32d921096c76def901aa598d3457fc1449c48c9adc3b6f7fe184c0ba19
   OBJCOPY arch/arm64/boot/Image
   GZIP    arch/arm64/boot/Image.gz
 Processing dts files...
@@ -64,4 +86,4 @@ dtb = boot.img-dtb
 Building image...
  
 Done!
-Total compile time is 7 seconds
+Total compile time is 93 seconds
