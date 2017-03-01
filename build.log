@@ -7,6 +7,7 @@ build common config=exynos7420-zerolte_nemesis_defconfig
 build variant config=zerolte 
 rm files in : /home/geiti94/android/kernel/test/arch/arm64/boot/dts/*.dtb
 rm: cannot remove '/home/geiti94/android/kernel/test/arch/arm64/boot/dts/*.dtb': No such file or directory
+rm: cannot remove '/home/geiti94/android/kernel/test/arch/arm64/boot/dtb/*.dtb': No such file or directory
 rm: cannot remove '/home/geiti94/android/kernel/test/arch/arm64/boot/boot.img-dtb': No such file or directory
 rm: cannot remove '/home/geiti94/android/kernel/test/arch/arm64/boot/boot.img-zImage': No such file or directory
 Kconfig:15:warning: environment variable ANDROID_MAJOR_VERSION undefined
@@ -18,17 +19,28 @@ Kconfig:15:warning: environment variable ANDROID_MAJOR_VERSION undefined
 INFO: CC is /home/geiti94/android/toolchain/aarch64-linux-android-4.9/bin/aarch64-linux-android-gcc
   CHK     include/generated/uapi/linux/version.h
   CC      scripts/mod/devicetable-offsets.s
-  CHK     include/generated/utsrelease.h
   GEN     scripts/mod/devicetable-offsets.h
-  CALL    scripts/checksyscalls.sh
   HOSTCC  scripts/mod/file2alias.o
   HOSTLD  scripts/mod/modpost
-  CHK     include/generated/compile.h
-  CC      block/elevator.o
-  LD      block/built-in.o
+  CHK     include/generated/utsrelease.h
 make[1]: Nothing to be done for 'dtbs'.
-  LD      drivers/staging/samsung/built-in.o
-  LD      drivers/staging/built-in.o
+  CALL    scripts/checksyscalls.sh
+  CHK     include/generated/compile.h
+  CC      drivers/cpufreq/exynos-mp-cpufreq.o
+  CC      drivers/cpufreq/exynos7420-atlas-cpufreq.o
+  CC      drivers/cpufreq/exynos7420-apollo-cpufreq.o
+  CC      drivers/cpufreq/dm_cpu_hotplug.o
+  LD      drivers/cpufreq/built-in.o
+  CC      drivers/rtc/rtc-sec.o
+  LD      drivers/rtc/built-in.o
+  CC      drivers/thermal/cpu_cooling.o
+  CC      drivers/thermal/exynos7420_thermal.o
+  CC      drivers/thermal/ipa.o
+  CC      drivers/scsi/ufs/ufshcd.o
+  LD      drivers/thermal/thermal_sys.o
+  LD      drivers/thermal/built-in.o
+  LD      drivers/scsi/ufs/built-in.o
+  LD      drivers/scsi/built-in.o
   LD      drivers/built-in.o
   LINK    vmlinux
   LD      vmlinux.o
@@ -44,9 +56,9 @@ make[1]: Nothing to be done for 'dtbs'.
   SORTEX  vmlinux
   SYSMAP  System.map
   FIPS : Generating hmac of fmp and updating vmlinux... 
-HMAC-SHA256(builtime_bytes.bin)= 2584cda957182905339d28f2bb3657968f759a7ff8a1dc3595f372187f3319bd
+HMAC-SHA256(builtime_bytes.bin)= 66086b50f19ef097242147c12f85353b4c313f72575556ad9e47ce8301e599a8
   FIPS : Generating hmac of crypto and updating vmlinux... 
-HMAC-SHA256(builtime_bytes.bin)= 2d629d32d921096c76def901aa598d3457fc1449c48c9adc3b6f7fe184c0ba19
+HMAC-SHA256(builtime_bytes.bin)= 62d5b9fa57c0b3d609bb8a335db3bf71ce1eacf4789c66aa0e3993752f0d4660
   OBJCOPY arch/arm64/boot/Image
   GZIP    arch/arm64/boot/Image.gz
 Processing dts files...
@@ -86,4 +98,4 @@ dtb = boot.img-dtb
 Building image...
  
 Done!
-Total compile time is 93 seconds
+Total compile time is 33 seconds
