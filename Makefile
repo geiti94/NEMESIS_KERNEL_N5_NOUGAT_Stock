@@ -381,17 +381,16 @@ LINUXINCLUDE    := \
 
 KBUILD_CPPFLAGS := -D__KERNEL__
 
-KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
+KBUILD_CFLAGS   :=  -w -Wundef -Wstrict-prototypes -Wno-trigraphs \
 		   -fno-strict-aliasing -fno-common \
-		   -Werror-implicit-function-declaration \
-		   -Wno-format-security -Wno-logical-not-parentheses \
+		   -Werror-implicit-function-declaration -fno-pic \
+		   -Wno-format-security \
 		   -fno-delete-null-pointer-checks \
-		   -fno-diagnostics-show-caret -fno-pic \
-		   -Wno-unused-variable \
-		   -mtune=cortex-a57.cortex-a53 \
-		   -std=gnu89
+		   -fdiagnostics-show-option -Werror \
+		   -march=armv8-a+crc \
+		   -mcpu=cortex-a57.cortex-a53 -mtune=cortex-a57.cortex-a53 \
+		   -std=gnu89 \
 
->>>>>>> 58433c6... modify source to compile with 7.0 toolchains
 KBUILD_AFLAGS_KERNEL :=
 KBUILD_CFLAGS_KERNEL :=
 KBUILD_AFLAGS   := -D__ASSEMBLY__
